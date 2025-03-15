@@ -32,26 +32,22 @@ Node* Insert(Node* root, int x){
 
 int Max(Node* root){
     if (root == NULL){
-        return 0;
+        return -1;
     }
-    else{
-        while(root->right != NULL){
-            root = root->right;
+    else if (root->right == NULL){
+            return root->dado;
         }
-        return root->dado;
-    }
+    return Max(root->right);
 }
 
 int Min(Node* root){
     if (root == NULL){
-        return 0;
+        return -1;
     }
-    else{
-        while(root->left != NULL){
-            root = root->left;
+    else if (root->left == NULL){
+            return root->dado;
         }
-        return root->dado;
-    }
+    return Min(root->left);
 }
 
 int main(void){
