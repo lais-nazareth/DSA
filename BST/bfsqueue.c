@@ -32,20 +32,20 @@ int is_empty(Queue *q){
 }
 
 void bfs(Node* root){
-    Queue* q;
-    q->front = -1;
-    q->rear = -1;
+    Queue q;
+    q.front = -1;
+    q.rear = -1;
 
-    Enqueue(q, root);
-    while (!is_empty(q)){
-        Node* current = Dequeue(q);
+    Enqueue(&q, root);
+    while (!is_empty(&q)){
+        Node* current = Dequeue(&q);
         printf("%d ", current->dado);
         
         if (current->left != NULL){
-            Enqueue(q, current->left);
+            Enqueue(&q, current->left);
         }
         if (current->right != NULL){
-            Enqueue(q, current->right);
+            Enqueue(&q, current->right);
         }
     }
 }
